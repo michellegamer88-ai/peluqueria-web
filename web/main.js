@@ -338,7 +338,7 @@
     var REASONS = {
       no_ia: "En esta vista la IA no está disponible. Te llevo al estudio a mano, que funciona igual de bien.",
       sin_clave: "El análisis con IA se está terminando de configurar. Mientras, puedes hacer tu estudio a mano: te llevo al siguiente paso.",
-      tamano: "Ese archivo pesa demasiado (máximo 10 MB). Prueba con otra foto o una captura.",
+      tamano: "Ese archivo pesa demasiado (máximo 6 MB). Prueba con otra foto o una captura.",
       tipo: "Ese formato no lo puedo leer. Sube una foto (JPG, PNG, WEBP, HEIC) o un PDF.",
       rate_min: "Has hecho varios estudios seguidos. Espera un minuto o continúa a mano.",
       rate_day: "Hoy ya has hecho muchos estudios. Puedes continuar a mano.",

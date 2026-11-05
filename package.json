@@ -1,0 +1,9 @@
+{
+  "name": "aurum-atelier",
+  "private": true,
+  "type": "module",
+  "description": "Solo para Netlify: dependencias de las funciones del asistente y del estudio.",
+  "dependencies": {
+    "@netlify/blobs": "^8.2.0"
+  }
+}

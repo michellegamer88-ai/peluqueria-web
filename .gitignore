@@ -8,3 +8,5 @@ web/datos/*.jsonl
 web/datos/*.csv
 web/datos/panel_pass.php
 *-ia/
+dist/
+node_modules/

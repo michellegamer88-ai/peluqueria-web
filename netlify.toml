@@ -1,0 +1,37 @@
+# Publicación en Netlify: la web estática sale de web/ (sin los .php) y la parte
+# inteligente la hacen las funciones de netlify/ con la clave guardada en Netlify.
+[build]
+  command = "node netlify/build.mjs"
+  publish = "dist"
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+[[edge_functions]]
+  path = "/asistente-ia.php"
+  function = "chat"
+
+[[edge_functions]]
+  path = "/lector-capilar.php"
+  function = "lector"
+
+[[edge_functions]]
+  path = "/look.php"
+  function = "look"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "no-cache"
+
+[[headers]]
+  for = "/assets/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"

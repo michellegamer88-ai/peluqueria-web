@@ -11,3 +11,17 @@ y estudio capilar con IA (foto o PDF → diagnóstico, look dibujado, ahorro est
 - `web/knowledge.php`: lo que sabe el asistente (servicios, precios, horario…).
 
 Contenido de ejemplo (marcado en la web): dirección, teléfono, cifras y testimonios.
+
+## Publicar en Netlify (con la IA funcionando)
+
+Netlify no ejecuta PHP, así que la parte inteligente está duplicada en `netlify/`
+(mismas direcciones: `/asistente-ia.php`, `/lector-capilar.php`, `/look.php`, `/lead.php`, `/panel.php`).
+
+1. Netlify → Add new site → Import an existing project → GitHub → `peluqueria-web`.
+2. Rama: `claude/barbershop-premium-web-wljh3h`. Lo demás lo lee de `netlify.toml` (no cambiar nada).
+3. Site configuration → Environment variables:
+   - `GEMINI_API_KEY` = la clave de Google AI Studio.
+   - `PANEL_PASSWORD` = contraseña del panel de contactos (mínimo 8 caracteres).
+4. Deploys → Trigger deploy. Los contactos se ven en `https://<tu-sitio>.netlify.app/panel.php`.
+
+Prueba local: `npm install && node netlify/build.mjs && GEMINI_API_KEY=… PANEL_PASSWORD=… BLOBS_DIR=/tmp/blobs node tools/netlify-local.mjs` → http://127.0.0.1:8090
