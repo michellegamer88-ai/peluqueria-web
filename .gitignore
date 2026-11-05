@@ -1,0 +1,10 @@
+# Datos privados y claves: nunca al repositorio
+aurum_leads.*
+gemini_api_key.php
+aurum_panel_pass.php
+aurum_aviso_email.php
+web/secret_config.php
+web/datos/*.jsonl
+web/datos/*.csv
+web/datos/panel_pass.php
+*-ia/

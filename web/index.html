@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="es" class="no-js">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AURUM Atelier · Peluquería &amp; Barbería de autor</title>
+<meta name="description" content="Peluquería y barbería premium. Cortes de autor, color, barba ritual y tratamientos. Reserva online y estudio capilar gratis con inteligencia artificial.">
+<meta name="theme-color" content="#0D0B08">
+<meta property="og:title" content="AURUM Atelier · Peluquería & Barbería de autor">
+<meta property="og:description" content="Cortes de autor, color y barba ritual. Estudio capilar gratis con IA.">
+<meta property="og:image" content="assets/img/hero.webp">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..600,0..100;1,9..144,300..600,0..100&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/img/hero.webp" media="(min-width: 641px)">
+<link rel="preload" as="image" href="assets/img/hero-mobile.webp" media="(max-width: 640px)">
+<link rel="stylesheet" href="styles.css?v=20261105">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"HairSalon","name":"AURUM Atelier","description":"Peluquería y barbería de autor (web de demostración)","telephone":"+34 600 000 000","address":{"@type":"PostalAddress","streetAddress":"Calle del Oro 12","addressLocality":"Centro"},"openingHours":["Tu-Fr 10:00-20:30","Sa 09:00-15:00"],"priceRange":"€€€"}
+</script>
+</head>
+<body>
+
+<!-- Splash (CSS + JS doble red de seguridad) -->
+<div class="splash" aria-hidden="true">
+  <div class="splash-mark">
+    <svg viewBox="0 0 120 120" class="splash-ring"><circle cx="60" cy="60" r="54"/></svg>
+    <span class="splash-au">Au</span>
+  </div>
+</div>
+
+<a class="skip" href="#main">Saltar al contenido</a>
+
+<header class="nav" data-nav>
+  <a href="#inicio" class="brand" aria-label="AURUM Atelier, inicio">
+    <span class="brand-mark">Au</span>
+    <span class="brand-name">AURUM<small>Atelier</small></span>
+  </a>
+  <nav class="nav-links" aria-label="Principal">
+    <a href="#ventajas">Ventajas</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#estudio">Estudio IA</a>
+    <a href="#proceso">Cómo funciona</a>
+    <a href="#faq">Preguntas</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+  <a href="#contacto" class="btn btn-gold btn-sm nav-cta" data-magnetic>Reservar cita</a>
+  <button class="nav-burger" aria-label="Abrir menú" aria-expanded="false" data-burger><span></span><span></span></button>
+</header>
+
+<div class="mmenu" data-mmenu aria-hidden="true">
+  <nav aria-label="Menú móvil">
+    <a href="#ventajas">Ventajas</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#estudio">Estudio IA</a>
+    <a href="#proceso">Cómo funciona</a>
+    <a href="#opiniones">Opiniones</a>
+    <a href="#faq">Preguntas</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+  <a href="#contacto" class="btn btn-gold">Reservar cita</a>
+</div>
+
+<main id="main">
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="inicio">
+  <div class="hero-bg">
+    <picture>
+      <source media="(max-width: 640px)" srcset="assets/img/hero-mobile.webp">
+      <img src="assets/img/hero.webp" alt="Estilista de AURUM perfilando un corte en un salón oscuro con luz dorada" fetchpriority="high" loading="eager" decoding="async">
+    </picture>
+    <div class="hero-tint"></div>
+  </div>
+  <div class="hero-mesh" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <div class="hero-inner">
+    <div class="hero-meta"><span class="dot"></span><span>Peluquería &amp; Barbería de autor · Abierto hoy</span></div>
+    <span class="hero-glyph" aria-hidden="true">Au<sup>79</sup></span>
+    <h1 class="hero-title" data-split>
+      <span class="line">Tu mejor versión,</span>
+      <span class="line"><em>cortada a medida.</em></span>
+    </h1>
+    <p class="hero-sub">Estilistas y barberos senior, diagnóstico capilar con inteligencia artificial y reserva online en segundos. Aquí no vienes a una cita: vienes a un ritual.</p>
+    <div class="hero-actions">
+      <a href="#contacto" class="btn btn-gold" data-magnetic>Reservar cita</a>
+      <a href="#estudio" class="btn btn-ghost" data-magnetic><span class="spark" aria-hidden="true">✦</span> Estudio capilar gratis con IA</a>
+    </div>
+    <div class="hero-foot">
+      <div class="hero-rating">
+        <span class="stars" aria-hidden="true">★★★★★</span>
+        <span><b data-count-to="4.9" data-decimals="1">4,9</b> · <b data-count-to="320">320</b> reseñas</span>
+        <span class="demo-tag">datos de ejemplo</span>
+      </div>
+      <a href="#ventajas" class="hero-scroll" aria-label="Bajar"><span></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- Cinta de servicios -->
+<div class="ribbon" aria-hidden="true">
+  <div class="ribbon-track">
+    <span>Corte de autor</span><i>✦</i><span>Barba ritual</span><i>✦</i><span>Balayage</span><i>✦</i><span>Reconstrucción</span><i>✦</i><span>Keratina</span><i>✦</i><span>Novias &amp; novios</span><i>✦</i>
+    <span>Corte de autor</span><i>✦</i><span>Barba ritual</span><i>✦</i><span>Balayage</span><i>✦</i><span>Reconstrucción</span><i>✦</i><span>Keratina</span><i>✦</i><span>Novias &amp; novios</span><i>✦</i>
+  </div>
+</div>
+
+<!-- ================= MANIFIESTO + VENTAJAS ================= -->
+<section class="section manifesto" id="ventajas">
+  <div class="wrap">
+    <div class="eyebrow reveal"><span>01</span> Ventajas</div>
+    <h2 class="display reveal">Lo que nos hace <em>distintos</em> no se ve en una foto de Instagram. <span class="muted">Se nota cuando sales por la puerta.</span></h2>
+
+    <figure class="manifesto-fig reveal">
+      <img src="assets/img/atelier.webp" alt="Interior del salón AURUM: sillones negros, espejos con marco dorado y luz cálida" loading="lazy" decoding="async">
+      <figcaption>El atelier · 6 puestos, cero prisas</figcaption>
+    </figure>
+
+    <div class="adv-grid">
+      <article class="adv reveal" data-tilt>
+        <div class="adv-ico"><svg viewBox="0 0 40 40"><circle cx="18" cy="18" r="10"/><path d="M26 26l8 8M14 18h8M18 14v8"/></svg></div>
+        <h3>Diagnóstico antes de la tijera</h3>
+        <p>Analizamos tipo, grosor y estado de tu cabello en 5 minutos. Sabes qué te vamos a hacer, por qué y cuánto cuesta. Sin sorpresas.</p>
+      </article>
+      <article class="adv reveal" data-tilt>
+        <div class="adv-ico"><svg viewBox="0 0 40 40"><path d="M8 32l14-14M22 18l6-10 4 4-10 6"/><circle cx="10" cy="10" r="4"/><circle cx="10" cy="30" r="4"/></svg></div>
+        <h3>Manos senior, siempre</h3>
+        <p>Estilistas y barberos con más de una década de oficio y formación continua en color, corte y barbería clásica. Nunca te atiende un aprendiz sin supervisión.</p>
+      </article>
+      <article class="adv reveal" data-tilt>
+        <div class="adv-ico"><svg viewBox="0 0 40 40"><rect x="7" y="9" width="26" height="24" rx="3"/><path d="M7 16h26M14 5v7M26 5v7M15 25l4 4 7-8"/></svg></div>
+        <h3>Reserva 24/7 en 30 segundos</h3>
+        <p>Elige servicio, profesional y hora desde el móvil. Te recordamos la cita y, si surge algo, la mueves sin llamar.</p>
+      </article>
+      <article class="adv reveal" data-tilt>
+        <div class="adv-ico"><svg viewBox="0 0 40 40"><path d="M15 6h10v6l4 6v14a3 3 0 0 1-3 3H14a3 3 0 0 1-3-3V18l4-6z"/><path d="M11 22h18"/></svg></div>
+        <h3>Producto profesional, sin venta forzada</h3>
+        <p>Fórmulas sin sulfatos y de alta concentración. Te decimos qué necesita tu pelo… y también qué te sobra.</p>
+      </article>
+      <article class="adv reveal" data-tilt>
+        <div class="adv-ico"><svg viewBox="0 0 40 40"><path d="M20 5l12 5v9c0 8-5 13-12 16C13 32 8 27 8 19v-9z"/><path d="M14 20l4 4 8-8"/></svg></div>
+        <h3>Garantía de 7 días</h3>
+        <p>¿Algo no te convence al lavarte en casa? Vuelve esa semana y lo ajustamos sin coste. Así de seguros estamos.</p>
+      </article>
+      <article class="adv reveal" data-tilt>
+        <div class="adv-ico"><svg viewBox="0 0 40 40"><path d="M10 18h18v6a9 9 0 0 1-18 0z"/><path d="M28 20h3a3 3 0 0 1 0 6h-3M15 7c0 3 3 3 3 6M21 7c0 3 3 3 3 6"/></svg></div>
+        <h3>Un ritual, no una cita</h3>
+        <p>Lavado con masaje, toalla caliente, café de especialidad o una copa. Una hora tuya, de verdad.</p>
+      </article>
+    </div>
+
+    <div class="stats reveal">
+      <div><b data-count-to="12">12</b><span>años de oficio</span></div>
+      <div><b data-count-to="9400" data-sep=".">9.400</b><span>clientes atendidos</span></div>
+      <div><b data-count-to="98">98</b><span>% repite</span></div>
+      <div><b data-count-to="6">6</b><span>profesionales senior</span></div>
+      <p class="demo-note">Cifras de ejemplo para la demostración.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERVICIOS (showcase horizontal) ================= -->
+<section class="showcase" id="servicios">
+  <div class="showcase-head wrap">
+    <div class="eyebrow reveal"><span>02</span> Servicios</div>
+    <h2 class="display reveal">Una carta corta. <em>Ejecutada a la perfección.</em></h2>
+    <p class="lead reveal">Precios orientativos «desde». El precio final depende del largo y del estado de tu cabello, y te lo confirmamos antes de empezar.</p>
+  </div>
+  <div class="showcase-pin" data-showcase>
+    <div class="showcase-track" data-track>
+      <article class="srv">
+        <div class="srv-img"><img src="assets/img/srv-corte.webp" alt="Corte de autor con tijera en melena media" loading="lazy" decoding="async"></div>
+        <div class="srv-body"><span class="srv-n">01</span><h3>Corte de autor</h3><p>Lavado, diagnóstico, corte pensado para tu rostro y tu rutina, y peinado.</p><div class="srv-meta"><span>desde <b>28 €</b> hombre · <b>45 €</b> mujer</span><span>45–60 min</span></div></div>
+      </article>
+      <article class="srv">
+        <div class="srv-img"><img src="assets/img/srv-barba.webp" alt="Barbero perfilando una barba con navaja y toalla caliente" loading="lazy" decoding="async"></div>
+        <div class="srv-body"><span class="srv-n">02</span><h3>Barba ritual</h3><p>Toalla caliente, navaja, perfilado a mano y aceites. El clásico, bien hecho.</p><div class="srv-meta"><span>desde <b>22 €</b> · corte + barba <b>45 €</b></span><span>30 min</span></div></div>
+      </article>
+      <article class="srv">
+        <div class="srv-img"><img src="assets/img/srv-color.webp" alt="Melena con balayage dorado y brillo" loading="lazy" decoding="async"></div>
+        <div class="srv-body"><span class="srv-n">03</span><h3>Color &amp; balayage</h3><p>Raíz, mechas pintadas a mano, gloss. Color que favorece y que crece bonito.</p><div class="srv-meta"><span>raíz desde <b>48 €</b> · balayage <b>95 €</b></span><span>1,5–3 h</span></div></div>
+      </article>
+      <article class="srv">
+        <div class="srv-img"><img src="assets/img/srv-tratamiento.webp" alt="Aplicación de tratamiento reconstructor en cabello largo" loading="lazy" decoding="async"></div>
+        <div class="srv-body"><span class="srv-n">04</span><h3>Tratamientos</h3><p>Hidratación profunda, reconstrucción de enlaces, keratina y ritual de cuero cabelludo.</p><div class="srv-meta"><span>desde <b>30 €</b> · keratina <b>150 €</b></span><span>30–120 min</span></div></div>
+      </article>
+      <article class="srv">
+        <div class="srv-img"><img src="assets/img/srv-peinado.webp" alt="Recogido elegante para evento" loading="lazy" decoding="async"></div>
+        <div class="srv-body"><span class="srv-n">05</span><h3>Peinados &amp; eventos</h3><p>Ondas, recogidos y looks de noche que aguantan hasta el último baile.</p><div class="srv-meta"><span>desde <b>55 €</b></span><span>60 min</span></div></div>
+      </article>
+      <article class="srv">
+        <div class="srv-img"><img src="assets/img/srv-novios.webp" alt="Novio preparándose con corte y barba en el salón" loading="lazy" decoding="async"></div>
+        <div class="srv-body"><span class="srv-n">06</span><h3>Novias &amp; novios</h3><p>Prueba previa, plan de tratamiento las semanas antes y servicio el gran día.</p><div class="srv-meta"><span>a medida</span><span>con prueba</span></div></div>
+      </article>
+      <article class="srv srv-end">
+        <div class="srv-body">
+          <span class="srv-n">Club</span>
+          <h3>Club AURUM</h3>
+          <p>Tu servicio mensual + tratamientos + descuento en producto. Sin permanencia.</p>
+          <ul class="club-list">
+            <li><span>Esencial</span><b>39 €/mes</b></li>
+            <li><span>Ritual</span><b>59 €/mes</b></li>
+            <li><span>Reconstrucción</span><b>89 €/mes</b></li>
+          </ul>
+          <a href="#estudio" class="btn btn-gold btn-sm">¿Cuál me conviene?</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ESTUDIO IA ================= -->
+<section class="section estudio" id="estudio">
+  <div class="estudio-glow" aria-hidden="true"></div>
+  <div class="wrap estudio-grid">
+    <div class="estudio-copy">
+      <div class="eyebrow reveal"><span>03</span> Estudio capilar con IA · gratis</div>
+      <h2 class="display reveal">Sube una foto de tu pelo. <em>Descubre tu look</em> y cuánto puedes ahorrar.</h2>
+      <p class="lead reveal">Nuestra inteligencia artificial analiza tu cabello (o el ticket de tu última visita), te propone el tratamiento que necesita, dibuja cómo te quedaría el look y calcula tu ahorro con un plan a tu medida.</p>
+      <ol class="estudio-steps reveal">
+        <li><b>1</b><span>Foto de tu pelo o PDF de tu ticket</span></li>
+        <li><b>2</b><span>Diagnóstico y gasto actual</span></li>
+        <li><b>3</b><span>Tu nuevo look, dibujado</span></li>
+        <li><b>4</b><span>Tu estudio de ahorro personalizado</span></li>
+      </ol>
+      <p class="fineprint reveal">Es una estimación orientativa, no un diagnóstico médico ni un presupuesto cerrado. Tu foto no se guarda: se analiza y se descarta.</p>
+    </div>
+
+    <div class="tool reveal" data-tool aria-live="polite">
+      <div class="tool-top">
+        <div class="tool-dots"><i class="on"></i><i></i><i></i><i></i><i></i></div>
+        <span class="tool-label" data-tool-label>Paso 1 de 5 · Tu foto</span>
+      </div>
+
+      <!-- Paso 1 -->
+      <div class="tool-step is-active" data-step="1">
+        <label class="drop" data-drop>
+          <input type="file" accept="image/jpeg,image/png,image/webp,image/heic,image/heif,application/pdf" data-file hidden>
+          <span class="drop-ico"><svg viewBox="0 0 48 48"><path d="M24 32V12M15 20l9-9 9 9"/><path d="M8 30v6a4 4 0 0 0 4 4h24a4 4 0 0 0 4-4v-6"/></svg></span>
+          <span class="drop-t">Arrastra aquí tu foto o pulsa para elegirla</span>
+          <span class="drop-s">Foto del pelo con buena luz (de frente o de lado) · o PDF/foto de tu ticket de peluquería · máx. 10 MB</span>
+        </label>
+        <div class="tool-or"><span>o</span></div>
+        <button type="button" class="btn btn-line btn-block" data-manual>No tengo foto: hacerlo a mano</button>
+        <p class="tool-privacy">🔒 La imagen solo se usa para este estudio y no se guarda.</p>
+      </div>
+
+      <!-- Paso 2: analizando -->
+      <div class="tool-step" data-step="2">
+        <div class="scan">
+          <div class="scan-frame"><img alt="" data-preview><div class="scan-pdf" data-pdf hidden><svg viewBox="0 0 48 48"><path d="M12 4h18l8 8v32H12z"/><path d="M30 4v8h8M18 26h14M18 32h14M18 20h8"/></svg><span>PDF</span></div><div class="scan-line"></div><div class="scan-grid"></div></div>
+          <ul class="scan-log" data-scanlog>
+            <li>Detectando tipo de cabello…</li>
+            <li>Midiendo grosor y longitud…</li>
+            <li>Evaluando brillo, puntas y porosidad…</li>
+            <li>Buscando importes en el documento…</li>
+            <li>Preparando tu recomendación…</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Paso 3: diagnóstico + gasto -->
+      <div class="tool-step" data-step="3">
+        <div class="diag" data-diag></div>
+        <form class="spend" data-spend novalidate>
+          <h4>Tu gasto actual en el cabello</h4>
+          <p class="spend-src" data-spendsrc>Ajusta los valores a tu rutina real.</p>
+          <div class="spend-grid">
+            <label>Visitas a la peluquería al mes
+              <select name="visitas"><option value="0.33">1 cada 3 meses</option><option value="0.5">1 cada 2 meses</option><option value="1" selected>1 al mes</option><option value="2">2 al mes</option><option value="4">Cada semana</option></select>
+            </label>
+            <label>Precio medio por visita (€)
+              <input type="number" name="precio" min="0" max="999" step="0.5" value="35" inputmode="decimal">
+            </label>
+            <label>Productos para el pelo al mes (€)
+              <input type="number" name="productos" min="0" max="999" step="0.5" value="20" inputmode="decimal">
+            </label>
+            <label>Tratamientos sueltos al mes (€)
+              <input type="number" name="tratamientos" min="0" max="999" step="0.5" value="0" inputmode="decimal">
+            </label>
+          </div>
+          <div class="spend-total">Total actual: <b data-total>55 €</b>/mes</div>
+          <button type="submit" class="btn btn-gold btn-block">Ver mi nuevo look →</button>
+        </form>
+      </div>
+
+      <!-- Paso 4: look + email -->
+      <div class="tool-step" data-step="4">
+        <div class="look">
+          <div class="look-visual" data-lookvisual><div class="look-loading"><span></span>Dibujando tu look…</div></div>
+          <div class="look-copy">
+            <span class="kicker">Look sugerido</span>
+            <h4 data-lookname>Tu look AURUM</h4>
+            <p data-lookdesc></p>
+          </div>
+        </div>
+        <form class="gate" data-gate novalidate>
+          <h4>¿A dónde te enviamos tu estudio?</h4>
+          <div class="gate-grid">
+            <input type="text" name="nombre" placeholder="Tu nombre" autocomplete="given-name" maxlength="80">
+            <input type="email" name="email" placeholder="Tu email *" autocomplete="email" required maxlength="160">
+          </div>
+          <input type="text" name="web" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <label class="check"><input type="checkbox" name="consent" required> <span>Acepto que AURUM guarde mi email y mi estudio para contactarme sobre él. Nada de spam; puedes pedir que lo borremos cuando quieras (<a href="#privacidad">privacidad</a>).</span></label>
+          <p class="form-err" data-gateerr hidden></p>
+          <button type="submit" class="btn btn-gold btn-block">Ver mi estudio personalizado</button>
+        </form>
+      </div>
+
+      <!-- Paso 5: estudio -->
+      <div class="tool-step" data-step="5">
+        <div class="study" data-study></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CÓMO FUNCIONA (sección clara) ================= -->
+<section class="section proceso" id="proceso">
+  <div class="wrap">
+    <div class="eyebrow reveal"><span>04</span> Cómo funciona</div>
+    <h2 class="display reveal">Del primer clic <em>al espejo</em>, en cuatro pasos.</h2>
+    <div class="steps" data-steps>
+      <svg class="steps-line" viewBox="0 0 1000 4" preserveAspectRatio="none" aria-hidden="true"><path d="M0 2H1000"/></svg>
+      <article class="step reveal">
+        <span class="step-n">01</span>
+        <h3>Reserva online</h3>
+        <p>Elige servicio, profesional y hora en 30 segundos. Si quieres, haz antes el estudio capilar con IA y tráelo hecho.</p>
+      </article>
+      <article class="step reveal">
+        <span class="step-n">02</span>
+        <h3>Diagnóstico en el sillón</h3>
+        <p>Tu estilista revisa tu cabello, escucha qué quieres y te confirma resultado y precio antes de empezar.</p>
+      </article>
+      <article class="step reveal">
+        <span class="step-n">03</span>
+        <h3>El ritual</h3>
+        <p>Lavado con masaje, servicio sin prisas y acabado profesional. Te enseñamos a peinarte en casa.</p>
+      </article>
+      <article class="step reveal">
+        <span class="step-n">04</span>
+        <h3>Seguimiento</h3>
+        <p>Te recordamos cuándo toca volver y ajustamos lo que haga falta. Garantía de 7 días incluida.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TESTIMONIOS ================= -->
+<section class="section opiniones" id="opiniones">
+  <div class="wrap">
+    <div class="eyebrow reveal"><span>05</span> Opiniones</div>
+    <h2 class="display reveal">Lo que dicen <em>al salir</em>.</h2>
+    <p class="demo-banner reveal">✦ Testimonios de ejemplo para la demostración. Se sustituirán por reseñas reales del salón.</p>
+    <div class="quotes">
+      <figure class="quote reveal" data-tilt>
+        <span class="demo-tag">Testimonio de ejemplo</span>
+        <blockquote>«Llevaba años saliendo de las peluquerías con el mismo corte de siempre. Aquí me preguntaron cómo me peino cada mañana y, por primera vez, el corte funciona sin secador.»</blockquote>
+        <figcaption><span class="av">L</span><span><b>Laura M.</b> · Corte de autor + gloss</span></figcaption>
+      </figure>
+      <figure class="quote reveal" data-tilt>
+        <span class="demo-tag">Testimonio de ejemplo</span>
+        <blockquote>«La barba ritual es otro nivel: toalla caliente, navaja y cero prisas. Reservo desde el móvil a las 11 de la noche y listo.»</blockquote>
+        <figcaption><span class="av">J</span><span><b>Javier R.</b> · Corte + barba</span></figcaption>
+      </figure>
+      <figure class="quote reveal" data-tilt>
+        <span class="demo-tag">Testimonio de ejemplo</span>
+        <blockquote>«Hice el estudio con la foto desde casa y me recomendaron reconstrucción antes del balayage. Tres sesiones después, mi pelo decolorado parece otro.»</blockquote>
+        <figcaption><span class="av">C</span><span><b>Carmen S.</b> · Plan Reconstrucción</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="section faq" id="faq">
+  <div class="wrap faq-grid">
+    <div>
+      <div class="eyebrow reveal"><span>06</span> Preguntas frecuentes</div>
+      <h2 class="display reveal">Todo lo que nos <em>preguntan</em>.</h2>
+      <p class="lead reveal">¿No está tu duda? Pregúntale a <b>Ámbar</b>, nuestra asistente, en el botón dorado de abajo a la derecha.</p>
+      <button type="button" class="btn btn-ghost reveal" data-openchat>Hablar con Ámbar</button>
+    </div>
+    <div class="faq-list">
+      <details class="qa reveal" open>
+        <summary>¿Cómo reservo una cita?<i></i></summary>
+        <div class="qa-a"><p>Desde el formulario de contacto de esta web, por WhatsApp o por teléfono. Te confirmamos la hora y te enviamos un recordatorio el día antes.</p></div>
+      </details>
+      <details class="qa reveal">
+        <summary>¿Cuánto cuesta un corte?<i></i></summary>
+        <div class="qa-a"><p>El corte de autor de hombre está desde 28 € y el de mujer desde 45 €, con lavado y peinado incluidos. Si tu pelo es muy largo o necesita tratamiento, te lo decimos antes de empezar.</p></div>
+      </details>
+      <details class="qa reveal">
+        <summary>¿El estudio capilar con IA es fiable?<i></i></summary>
+        <div class="qa-a"><p>Es una primera orientación muy útil: identifica tipo, grosor y estado aparente de tu cabello y propone un tratamiento. No sustituye al diagnóstico en el sillón ni a un médico; tu estilista lo confirma en persona y gratis.</p></div>
+      </details>
+      <details class="qa reveal">
+        <summary>¿Qué pasa con la foto que subo?<i></i></summary>
+        <div class="qa-a"><p>Se envía cifrada a la IA para analizarla y se descarta. No la guardamos. Solo conservamos el email y el resumen del estudio si tú nos das permiso.</p></div>
+      </details>
+      <details class="qa reveal">
+        <summary>¿Qué es el Club AURUM?<i></i></summary>
+        <div class="qa-a"><p>Una cuota mensual sin permanencia que incluye tu servicio del mes, tratamientos según el plan y descuento en producto. Para quien viene con regularidad, sale más a cuenta que pagar cada visita suelta.</p></div>
+      </details>
+      <details class="qa reveal">
+        <summary>¿Puedo cancelar o cambiar mi cita?<i></i></summary>
+        <div class="qa-a"><p>Sí, sin coste hasta 24 horas antes. Si llegas más de 15 minutos tarde, puede que tengamos que mover tu cita para no retrasar al siguiente cliente.</p></div>
+      </details>
+      <details class="qa reveal">
+        <summary>¿Hacéis novias, novios y eventos?<i></i></summary>
+        <div class="qa-a"><p>Sí. Hacemos prueba previa, plan de tratamiento las semanas anteriores y el servicio el gran día, en el salón o a domicilio según disponibilidad.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACTO ================= -->
+<section class="section contacto" id="contacto">
+  <div class="wrap contact-grid">
+    <div class="contact-info">
+      <div class="eyebrow reveal"><span>07</span> Contacto &amp; reservas</div>
+      <h2 class="display reveal">Tu sillón <em>te espera</em>.</h2>
+      <dl class="info reveal">
+        <div><dt>Dirección</dt><dd>Calle del Oro 12, Centro<br><small class="demo-tag">dirección de ejemplo</small></dd></div>
+        <div><dt>Horario</dt><dd>Mar–Vie 10:00–20:30<br>Sáb 9:00–15:00 · Dom–Lun cerrado</dd></div>
+        <div><dt>Teléfono &amp; WhatsApp</dt><dd><a href="tel:+34600000000">+34 600 000 000</a></dd></div>
+        <div><dt>Email</dt><dd><a href="mailto:hola@aurum-atelier.es">hola@aurum-atelier.es</a></dd></div>
+      </dl>
+      <div class="map reveal" aria-hidden="true">
+        <svg viewBox="0 0 400 220" preserveAspectRatio="xMidYMid slice"><g class="map-streets"><path d="M-10 60H410M-10 150H410M80-10V230M220-10V230M330-10V230M-10 210L410 10"/><path class="thin" d="M-10 105H410M150-10V230M280-10V230M-10 30L200 230"/></g><circle class="map-pulse" cx="220" cy="105" r="16"/><circle class="map-pin" cx="220" cy="105" r="6"/></svg>
+        <span class="map-label">AURUM · Calle del Oro 12</span>
+      </div>
+    </div>
+
+    <form class="cform reveal" data-cform novalidate>
+      <h3>Pide tu cita</h3>
+      <p class="muted">Te respondemos en menos de 2 horas en horario de apertura.</p>
+      <div class="cgrid">
+        <label class="fl"><input name="nombre" required maxlength="80" placeholder=" " autocomplete="name"><span>Nombre *</span></label>
+        <label class="fl"><input name="telefono" type="tel" maxlength="24" placeholder=" " autocomplete="tel"><span>Teléfono</span></label>
+        <label class="fl full"><input name="email" type="email" required maxlength="160" placeholder=" " autocomplete="email"><span>Email *</span></label>
+        <label class="fl full sel"><select name="servicio">
+          <option>Corte de autor</option><option>Corte + barba</option><option>Barba ritual</option><option>Color / balayage</option><option>Tratamiento</option><option>Peinado / evento</option><option>Novias &amp; novios</option><option>Club AURUM</option><option>Otro</option>
+        </select><span>Servicio</span></label>
+        <label class="fl full"><textarea name="mensaje" rows="3" maxlength="800" placeholder=" "></textarea><span>Día y hora que prefieres, o lo que quieras contarnos</span></label>
+      </div>
+      <input type="text" name="web" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <label class="check"><input type="checkbox" name="consent" required> <span>Acepto que AURUM use mis datos para responder a esta solicitud (<a href="#privacidad">privacidad</a>).</span></label>
+      <p class="form-err" data-cerr hidden></p>
+      <button class="btn btn-gold btn-block csubmit" type="submit"><span class="lbl">Enviar solicitud</span><span class="spin" aria-hidden="true"></span></button>
+      <div class="cdone" hidden>
+        <svg viewBox="0 0 52 52"><circle cx="26" cy="26" r="24"/><path d="M15 27l7 7 15-16"/></svg>
+        <h4>¡Solicitud recibida!</h4>
+        <p>Te escribimos muy pronto para confirmar tu cita.</p>
+      </div>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-top">
+      <a href="#inicio" class="brand"><span class="brand-mark">Au</span><span class="brand-name">AURUM<small>Atelier</small></span></a>
+      <p class="foot-claim">Peluquería &amp; barbería de autor.<br><em>El oro está en los detalles.</em></p>
+      <a href="#contacto" class="btn btn-gold btn-sm">Reservar cita</a>
+    </div>
+    <div class="foot-legal" id="privacidad">
+      <h4>Privacidad, en corto</h4>
+      <p>Los datos que nos dejas (nombre, email, teléfono y, si haces el estudio, su resumen) solo los usa el salón para atenderte y no se ceden a terceros. Las fotos del estudio capilar se envían a la IA de Google para analizarlas y no se guardan en nuestro servidor. Puedes pedir que borremos tus datos escribiendo a hola@aurum-atelier.es.</p>
+      <p class="demo-note">AURUM Atelier es una marca de demostración: dirección, teléfono, cifras y testimonios son de ejemplo. Imágenes generadas con inteligencia artificial.</p>
+    </div>
+    <div class="foot-bottom"><span>© <span data-year>2026</span> AURUM Atelier</span><span>Hecho con oficio.</span></div>
+  </div>
+</footer>
+
+<!-- ================= ASISTENTE ÁMBAR ================= -->
+<div class="chat" data-chat>
+  <button class="chat-fab" data-chatfab aria-label="Abrir asistente Ámbar" aria-expanded="false">
+    <span class="chat-fab-ico"><svg viewBox="0 0 32 32"><path d="M6 8a4 4 0 0 1 4-4h12a4 4 0 0 1 4 4v9a4 4 0 0 1-4 4h-8l-6 5v-5a2 2 0 0 1-2-2z"/><path d="M12 12.5h8M12 16h5"/></svg></span>
+    <span class="chat-fab-x" aria-hidden="true">✕</span>
+    <span class="chat-ping" aria-hidden="true"></span>
+  </button>
+  <div class="chat-panel" role="dialog" aria-label="Asistente Ámbar" aria-hidden="true" data-chatpanel>
+    <header class="chat-head">
+      <span class="chat-av">Á</span>
+      <div><b>Ámbar</b><small><i></i> Asistente de AURUM · responde al momento</small></div>
+      <button class="chat-close" data-chatclose aria-label="Cerrar">✕</button>
+    </header>
+    <div class="chat-body" data-chatbody>
+      <div class="msg bot">¡Hola! Soy Ámbar ✨ Te ayudo con servicios, precios, citas y cuidado del cabello o la barba. ¿Qué te gustaría saber?</div>
+    </div>
+    <div class="chat-sugs" data-chatsugs>
+      <button type="button">¿Cuánto cuesta un corte con barba?</button>
+      <button type="button">Tengo el pelo decolorado y muy seco</button>
+      <button type="button">¿Qué horario tenéis?</button>
+      <button type="button">Quiero el estudio capilar gratis</button>
+    </div>
+    <form class="chat-form" data-chatform>
+      <input type="text" name="m" placeholder="Escribe tu pregunta…" maxlength="500" autocomplete="off" aria-label="Tu mensaje">
+      <button type="submit" aria-label="Enviar"><svg viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></svg></button>
+    </form>
+    <p class="chat-foot">Respuestas orientativas generadas por IA.</p>
+  </div>
+</div>
+
+<script defer src="lib/gsap.min.js"></script>
+<script defer src="lib/ScrollTrigger.min.js"></script>
+<script defer src="lib/manifest.js?v=20261105"></script>
+<script defer src="main.js?v=20261105"></script>
+</body>
+</html>
