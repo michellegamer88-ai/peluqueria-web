@@ -4,7 +4,7 @@
 require __DIR__ . '/ia-comun.php';
 ia_guard();
 
-$MODELS = ['gemini-2.5-flash-lite', 'gemini-2.5-flash']; // capa gratuita: preferente + respaldo
+$MODELS = ['gemini-3.1-flash-lite', 'gemini-flash-lite-latest', 'gemini-3.5-flash-lite']; // capa gratuita: preferente + respaldo
 
 function reply($text, $extra = []) { ia_out(array_merge(['reply' => $text], $extra)); }
 
@@ -38,7 +38,7 @@ $contents[] = ['role' => 'user', 'parts' => [['text' => $message]]];
 $payload = [
   'system_instruction' => ['parts' => [['text' => $system]]],
   'contents'           => $contents,
-  'generationConfig'   => ['temperature' => 0.5, 'topP' => 0.9, 'maxOutputTokens' => 600, 'thinkingConfig' => ['thinkingBudget' => 0]],
+  'generationConfig'   => ['temperature' => 0.5, 'topP' => 0.9, 'maxOutputTokens' => 1500],
   'safetySettings'     => [
     ['category' => 'HARM_CATEGORY_HARASSMENT',        'threshold' => 'BLOCK_ONLY_HIGH'],
     ['category' => 'HARM_CATEGORY_HATE_SPEECH',       'threshold' => 'BLOCK_ONLY_HIGH'],

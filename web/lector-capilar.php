@@ -71,11 +71,11 @@ $payload = [
     'role'  => 'user',
     'parts' => [['inline_data' => ['mime_type' => $mime, 'data' => base64_encode($bytes)]], ['text' => $INSTR]],
   ]],
-  'generationConfig' => ['temperature' => 0.2, 'maxOutputTokens' => 1400, 'responseMimeType' => 'application/json', 'thinkingConfig' => ['thinkingBudget' => 0]],
+  'generationConfig' => ['temperature' => 0.2, 'maxOutputTokens' => 6000, 'responseMimeType' => 'application/json'],
 ];
 
 $parsed = null; $lastErr = '';
-foreach (['gemini-2.5-flash', 'gemini-2.5-flash-lite'] as $m) {
+foreach (['gemini-3.5-flash', 'gemini-flash-latest', 'gemini-3.1-flash-lite'] as $m) {
   list($data, $err) = ia_gemini($m, $key, $payload, 50);
   if (!$data) { $lastErr .= ' | ' . $err; continue; }
   $parsed = ia_extract_json(ia_text($data));

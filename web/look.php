@@ -33,7 +33,7 @@ $payload = [
 ];
 
 $lastErr = '';
-foreach (['gemini-2.5-flash-image', 'gemini-2.5-flash-image-preview', 'gemini-2.0-flash-preview-image-generation'] as $m) {
+foreach (['gemini-3.1-flash-image', 'gemini-2.5-flash-image', 'gemini-3.1-flash-lite-image'] as $m) {
   list($data, $err) = ia_gemini($m, $key, $payload, 90);
   if (!$data) { $lastErr .= ' | ' . $err; continue; }
   foreach (($data['candidates'][0]['content']['parts'] ?? []) as $p) {
