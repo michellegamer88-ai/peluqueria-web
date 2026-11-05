@@ -179,7 +179,15 @@
     return fetch(url, { method: "POST", body: fd, signal: ctl ? ctl.signal : undefined, credentials: "same-origin" })
       .then(function (r) { if (t) clearTimeout(t); return r.json(); });
   }
-  var LEAD_ERR = { email: "Revisa tu email, parece que falta algo.", consent: "Necesitamos tu permiso para guardar los datos.", rate_min: "Has enviado varias veces seguidas; espera un minuto.", rate_day: "Hoy ya hemos recibido varios envíos desde aquí. Llámanos o escríbenos por WhatsApp." };
+  // Conexión con la IA y el guardado de contactos. En el servidor del salón usa los
+  // archivos .php; la versión de demostración puede sustituirla con window.__AURUM_API__.
+  var API = window.__AURUM_API__ || {
+    chat: function (body) { return postJSON("asistente-ia.php", body, 35000); },
+    analyze: function (fd) { return postForm("lector-capilar.php", fd, 70000); },
+    look: function (fd) { return postForm("look.php", fd, 95000); },
+    lead: function (body) { return postJSON("lead.php", body, 20000); }
+  };
+  var LEAD_ERR = { demo: "Esto es una demostración: en la web del salón, esta solicitud llega directamente a su panel de contactos.", email: "Revisa tu email, parece que falta algo.", consent: "Necesitamos tu permiso para guardar los datos.", rate_min: "Has enviado varias veces seguidas; espera un minuto.", rate_day: "Hoy ya hemos recibido varios envíos desde aquí. Llámanos o escríbenos por WhatsApp." };
 
   function initContact() {
     var f = $("[data-cform]"); if (!f) return;
@@ -192,7 +200,7 @@
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { f.email.parentNode.classList.add("err"); err.textContent = "Revisa tu email."; err.hidden = false; return; }
       if (!f.consent.checked) { err.textContent = "Marca la casilla de privacidad para poder responderte."; err.hidden = false; return; }
       f.classList.add("is-sending");
-      postJSON("lead.php", { tipo: "contacto", nombre: nombre, email: email, telefono: f.telefono.value, servicio: f.servicio.value, mensaje: f.mensaje.value, consent: true, web: f.web.value }, 20000)
+      API.lead({ tipo: "contacto", nombre: nombre, email: email, telefono: f.telefono.value, servicio: f.servicio.value, mensaje: f.mensaje.value, consent: true, web: f.web.value }, 20000)
         .then(function (r) {
           f.classList.remove("is-sending");
           if (r && r.ok) { $(".cdone", f).hidden = false; }
@@ -227,7 +235,7 @@
       text = (text || "").trim(); if (!text || busy) return;
       busy = true; add(text, "me"); input.value = ""; sugs.style.display = "none";
       var typing = document.createElement("div"); typing.className = "msg bot typing"; typing.innerHTML = "<i></i><i></i><i></i>"; body.appendChild(typing); body.scrollTop = body.scrollHeight;
-      postJSON("asistente-ia.php", { message: text, history: history.slice(-8) }, 35000)
+      API.chat({ message: text, history: history.slice(-8) }, 35000)
         .then(function (r) {
           typing.remove();
           var reply = (r && r.reply) || "Ahora mismo no puedo responder. Escríbenos por el formulario y te ayudamos.";
@@ -328,6 +336,7 @@
     }
 
     var REASONS = {
+      no_ia: "En esta vista la IA no está disponible. Te llevo al estudio a mano, que funciona igual de bien.",
       sin_clave: "El análisis con IA se está terminando de configurar. Mientras, puedes hacer tu estudio a mano: te llevo al siguiente paso.",
       tamano: "Ese archivo pesa demasiado (máximo 10 MB). Prueba con otra foto o una captura.",
       tipo: "Ese formato no lo puedo leer. Sube una foto (JPG, PNG, WEBP, HEIC) o un PDF.",
@@ -354,7 +363,7 @@
       shrink(file).then(function (f2) {
         S.file = f2;
         var fd = new FormData(); fd.append("archivo", f2, f2.name || "archivo");
-        return postForm("lector-capilar.php", fd, 70000);
+        return API.analyze(fd, f2);
       }).then(function (r) {
         var wait = Math.max(0, 3400 - (Date.now() - t0));
         setTimeout(function () {
@@ -365,7 +374,7 @@
             logs.forEach(function (l) { l.className = "done"; });
             setTimeout(function () { showDiag(); go(3); }, 400);
           } else {
-            alertBox(REASONS[(r && r.reason) || "ia"] || REASONS.ia, true, r && r.reason === "sin_clave");
+            alertBox(REASONS[(r && r.reason) || "ia"] || REASONS.ia, true, !!(r && (r.reason === "sin_clave" || r.reason === "no_ia")));
           }
         }, wait);
       }).catch(function () { clearInterval(tick); alertBox("No he podido conectar con el análisis. Puedes continuar a mano y lo afinamos en el salón.", true); });
@@ -482,7 +491,7 @@
         vis.innerHTML = '<div class="look-loading"><span></span>Dibujando tu look con IA…</div>';
         var desc = [rec.lookName, rec.lookDesc, "length: " + rec.look.longitud, "texture: " + rec.look.textura, rec.look.color ? "hair color " + rec.look.color : "", rec.look.flequillo ? "with bangs" : ""].filter(Boolean).join(". ");
         var fd = new FormData(); fd.append("foto", S.file, S.file.name || "foto.jpg"); fd.append("descripcion", desc);
-        postForm("look.php", fd, 95000).then(function (r) {
+        API.look(fd, S.file, desc).then(function (r) {
           if (r && r.ok && r.image) { var im = new Image(); im.alt = "Tu look sugerido, generado con IA"; im.onload = function () { vis.innerHTML = ""; vis.appendChild(im); vis.insertAdjacentHTML("beforeend", '<span class="look-badge">Generado con IA · orientativo</span>'); S.lookHTML = vis.innerHTML; }; im.onerror = function () { svg(); }; im.src = r.image; }
           else svg();
         }).catch(function () { svg(); });
@@ -498,7 +507,7 @@
       if (!gate.consent.checked) { gerr.textContent = "Marca la casilla para que podamos guardar tu estudio."; gerr.hidden = false; return; }
       var st = study(), btn = $("button[type=submit]", gate);
       btn.disabled = true; btn.textContent = "Preparando tu estudio…";
-      postJSON("lead.php", { tipo: "estudio", nombre: gate.nombre.value, email: email, consent: true, web: gate.web.value,
+      API.lead({ tipo: "estudio", nombre: gate.nombre.value, email: email, consent: true, web: gate.web.value,
         estudio: { diagnostico: st.rec.diagTxt, tratamiento: st.rec.tratNombre, look: st.rec.lookName, gastoMes: st.actual, plan: st.plan.nombre, ahorroAnual: Math.round(st.ahorroMes * 12) } }, 20000)
         .then(function (r) {
           if (r && r.ok) { renderStudy(st, gate.nombre.value.trim()); go(5); }
@@ -548,7 +557,7 @@
           '<div class="study-card wide"><h5>Tu look</h5><div class="study-look"><div class="look-visual">' + (S.lookHTML || lookSVG(st.rec.look)) + '</div><div><div class="v" style="font-size:1.15rem">' + esc(st.rec.lookName) + '</div><p class="demo-note" style="margin:6px 0 0">' + esc(st.rec.lookDesc || "") + '</p></div></div></div>' +
         '</div>' +
         '<ul class="study-assump"><li>Plan ' + esc(st.plan.nombre) + ': ' + esc(st.plan.texto || "") + ' (' + eur(st.plan.cuota) + '/mes, sin permanencia).</li><li>Visitas extra y productos con el descuento del plan; precios orientativos «desde».</li><li>Calculado con los datos que has indicado' + (S.data && S.data.gasto && S.data.gasto.gasto_total_eur != null ? " y los importes leídos de tu documento" : "") + '.</li></ul>' +
-        '<p class="study-disclaimer">⚠ Estimación orientativa: no es un presupuesto ni un diagnóstico médico. El precio final y el tratamiento se confirman gratis en tu primera visita.' + (notSaved ? " (No hemos podido guardar tu email ahora; si quieres que te contactemos, usa el formulario.)" : " Te enviaremos una copia y te contactaremos para tu cita.") + '</p>' +
+        '<p class="study-disclaimer">⚠ Estimación orientativa: no es un presupuesto ni un diagnóstico médico. El precio final y el tratamiento se confirman gratis en tu primera visita.' + (notSaved ? " " + (API.notSavedText || "(No hemos podido guardar tu email ahora; si quieres que te contactemos, usa el formulario.)") : " Te enviaremos una copia y te contactaremos para tu cita.") + '</p>' +
         '<div class="study-actions"><a href="#contacto" class="btn btn-gold" data-booknow>Reservar con este estudio</a><button type="button" class="btn btn-line" data-restart>Hacer otro estudio</button></div>';
       setTimeout(function () {
         $$("[data-w]", box).forEach(function (b) { b.style.setProperty("--w", b.getAttribute("data-w") + "%"); });
